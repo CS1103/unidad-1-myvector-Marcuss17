@@ -10,7 +10,9 @@ namespace UTEC{
         int *pointer;
     public:
         Vector(int);
-        int getNumElements();
+		Vector(const Vector&);
+		Vector operator=(const Vector&);
+		int getNumElements();
         int fillVector();
         void push_back(int);
         void pop_back();
@@ -19,7 +21,7 @@ namespace UTEC{
         void insert(int,int);
         void erase(int);
         int operator[](int);
-        Vector operator+(Vector);
+        Vector operator+(const Vector&);
     };
 }
 

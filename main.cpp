@@ -7,6 +7,10 @@ using std::endl;
 using std:: cin;
 using namespace UTEC;
 
+//////////////////////
+// NOTA: Programa con algunas correcciones
+//////////////////////
+
 int main() {
     /*FOR THE ASSERTS:
     v1 size = 3; v2 size =2;
@@ -27,8 +31,9 @@ int main() {
 
     //Assert v.size
     v1.size();
-    assert(v1.size()==numElementsV1);
-    //
+	assert(v1.size() == numElementsV1);
+	assert(v2.size() == numElementsV2);
+	//
 
     //Assert v.push_back
     cout <<"Enter a number you wish to add to the vector number 1: "; cin >> addedNumber; // addedNumber = 4;
@@ -45,15 +50,25 @@ int main() {
     //Exception for insertion pos out of range
     cout << "\nTrying to insert an element to a position out of range: \n";
     positionOutOfRange = numElementsV1;
-    v2.insert(positionOutOfRange,5);
-    cout << endl;
+	try {
+		v2.insert(positionOutOfRange,5);
+	}
+	catch (const std::exception& e) {
+		cout << e.what();
+	}
+	cout << endl;
     //
 
     //Assert v.insert. Consider you have already done a pop_back to v2
     cout <<"Enter a position you wish to add a number to vector 2: "; cin >> positionToAddV2; //positiontoAddV2 = 0
     cout <<"Enter the value you wish to add: "; cin >> valueToAddV2; //valueToAddV2 = 0
-    v2.insert(positionToAddV2,valueToAddV2);
-    assert(v2[positionToAddV2] == valueToAddV2);
+	try {
+		v2.insert(positionToAddV2,valueToAddV2);
+	}
+	catch (const std::exception& e) {
+		cout << e.what();
+	}
+	//assert(v2[positionToAddV2] == valueToAddV2);
     //
 
     //Assert v.erase. Consider you have already done a push_back to v1.
